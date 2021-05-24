@@ -1,7 +1,9 @@
 import {useRouter} from 'next/router'
 import {apiData} from '../../helper/util-helper'
+
 import EventList from '../../Components/event-list'
 import EventSearch from '../../Components/event-detail/event-search'
+import Newsletter from '../../Components/input/newsletter-registration'
 
 const events =(props)=>{
 
@@ -17,8 +19,10 @@ const events =(props)=>{
 
 return (
                <div>
+               
                <EventSearch onSearch={valueTakeHandler} />
                               <EventList items={events} /> 
+               <Newsletter/>
                </div>
 )
 }

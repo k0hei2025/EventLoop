@@ -6,19 +6,22 @@ import Typography from '@material-ui/core/Typography'
 import EventSumary from '../../Components/event-detail/event-summary'
 import EventLogisitcs from '../../Components/event-detail/event-logistics'
 import EventContent from '../../Components/event-detail/event-content'
-
-
+import Comments from '../../Components/input/comments'
 
 const someId=(props)=>{
+   
+
+  
+
+  const route = useRouter();
+
+  console.log( 'someId', someId);
+ 
 
     const {idValue} = props;
     console.log(idValue);        
-    //    const route = useRouter();
-            //    console.log(route.pathname);            
-            //   //const {someid} = route.query;
-            //  console.log(someid);
-    
-            const event = idValue;
+
+            const event = props.selectedEvent;
               if (!event){
                         return  <Typography>Page not found</Typography>
              }
@@ -33,8 +36,8 @@ const someId=(props)=>{
                    imageAlt={event.title}/>
                 <EventContent>
                              <p>{event.description}</p>  
-                </EventContent>
-
+                  </EventContent>
+                <Comments eventId={event.id}  />
                 </Fragment>
                                   
                                 
@@ -42,33 +45,35 @@ const someId=(props)=>{
  )
 }
 
-export const getStaticProps=async(context)=>{
-   const eventId = context.params.eventId;
-  
-  const idData = await getEventById(eventId);
+export async function getStaticProps(context) {
+  const eventId = context.params.someid;
+
+  const event = await getEventById(eventId);
 
   return {
-    props:{
-      idValue : idData
-    }
-  }
+    props: {
+      selectedEvent: event
+    },
+    revalidate: 30
+  };
 }
 
 
-export const getStaticPaths=async()=>{
- const events = await apiData();
 
- const pathsi = events.map((event) =>{
-  return ( {
+export const getStaticPaths=async()=>{
+
+  const events = await apiData();
+ const paths = events.map((event) =>
+
+   ( {
   params:{
-      eventId : event.id
+      someid : event.id
     }
-  })
-  });
+  }))
    
  return {
-   paths:pathsi,
-   fallback : false
+   paths:paths,
+   fallback : 'blocking'
  };
 }
 export default someId
