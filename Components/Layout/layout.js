@@ -1,13 +1,17 @@
-import { Fragment } from "react"
+import { Fragment , useContext } from "react"
 
 
 import MainHeaer from './main-Header' 
 
+
 const Layout =(props)=>{
+
+ 
                return(
 <Fragment>
  <MainHeaer/>
  <main>{props.children} </main>
+
 </Fragment> 
                )
 }

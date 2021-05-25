@@ -1,14 +1,21 @@
-import {useRef, useState}  from 'react'
+import {useRef, useState }  from 'react'
+
 import classes from './newsletter-registration.module.css';
+
+
 
 function NewsletterRegistration() {
   
+
+
   
   const [state , setState ] = useState('');
- 
+
   function registrationHandler(event) {
     event.preventDefault();
-     
+  
+   
+   
   
   fetch('/api/newsLetter',
   {
@@ -18,15 +25,21 @@ function NewsletterRegistration() {
       'Content-Type' : 'application/json',  
     },
   }
+ 
+
   ).then((data)=>{
    return data.json();
   })
   .then((resData)=>{
-    return console.log(resData);
-  })
+    return console.log(resData.comments)
+    })
+       
+    
+
+  }
    
 
-  } 
+  
 
   return (
     <section className={classes.newsletter}>

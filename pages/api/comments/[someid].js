@@ -6,7 +6,7 @@ const commentHandler=async(req , res)=>{
                
 const eventId = req.query.someid;
 
-               const client =  await MongoClient.connect('mongodb+srv://k0hei:8dvGGEdw5DVUGjQc@cluster0.lodud.mongodb.net/events?retryWrites=true&w=majority')
+               const client =  await MongoClient.connect('mongodb+srv://k0hei:ShUQZtP1OWidNfG3@cluster0.lodud.mongodb.net/events?retryWrites=true&w=majority')
   
               
               

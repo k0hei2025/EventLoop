@@ -9,7 +9,7 @@ if (req.method ==='POST'){
                               return;
                }
 
-  const client =  await MongoClient.connect('mongodb+srv://k0hei:8dvGGEdw5DVUGjQc@cluster0.lodud.mongodb.net/newsletter?retryWrites=true&w=majority')
+  const client =  await MongoClient.connect('mongodb+srv://k0hei:ShUQZtP1OWidNfG3@cluster0.lodud.mongodb.net/newsletter?retryWrites=true&w=majority')
   
  const db = client.db();
 

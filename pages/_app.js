@@ -5,6 +5,7 @@ import Layout from '../Components/Layout/layout';
 
 function MyApp({ Component, pageProps }) {
   return (
+ 
     <Layout>
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -12,7 +13,10 @@ function MyApp({ Component, pageProps }) {
 <link href="https://fonts.googleapis.com/css2?family=Acme&family=Dosis:wght@400;500&display=swap" rel="stylesheet"></link>
       </Head>
       <Component {...pageProps} />
+     
     </Layout>
+   
+   
   );
 }
 
